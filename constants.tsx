@@ -1,0 +1,172 @@
+
+import { ElementData, Translation } from './types';
+
+export const TRANSLATIONS: Record<'en' | 'ar', Translation> = {
+  en: {
+    title: "Chemist",
+    subtitle: "Interactive Periodic Table",
+    atomicNumber: "Atomic Number",
+    atomicWeight: "Atomic Weight",
+    discoverer: "Discoverer",
+    danger: "Hazards",
+    electronConfig: "Electron Configuration",
+    shells: "Shells",
+    category: "Category",
+    description: "Description",
+    close: "Close",
+    designedBy: "Designed by",
+    rakiz: "Rakiz",
+    chemist: "Chemist",
+    phase: "Phase",
+    meltingPoint: "Melting Point",
+    boilingPoint: "Boiling Point",
+    electronegativity: "Electronegativity",
+    year: "Discovery Year",
+    density: "Density"
+  },
+  ar: {
+    title: "الكيميائي",
+    subtitle: "الجدول الدوري التفاعلي",
+    atomicNumber: "العدد الذري",
+    atomicWeight: "الكتلة الذرية",
+    discoverer: "المكتشف",
+    danger: "المخاطر",
+    electronConfig: "التوزيع الإلكتروني",
+    shells: "المدارات",
+    category: "الفئة",
+    description: "الوصف",
+    close: "إغلاق",
+    designedBy: "تصميم",
+    rakiz: "ركز",
+    chemist: "الكيميائي",
+    phase: "الحالة",
+    meltingPoint: "درجة الانصهار",
+    boilingPoint: "درجة الغليان",
+    electronegativity: "السالبية الكهربية",
+    year: "سنة الاكتشاف",
+    density: "الكثافة"
+  }
+};
+
+export const CATEGORY_COLORS: Record<string, string> = {
+  "Alkali Metal": "bg-red-500",
+  "Alkaline Earth Metal": "bg-orange-500",
+  "Transition Metal": "bg-yellow-500",
+  "Post-transition Metal": "bg-emerald-500",
+  "Metalloid": "bg-teal-500",
+  "Reactive Nonmetal": "bg-blue-500",
+  "Noble Gas": "bg-purple-500",
+  "Halogen": "bg-indigo-500",
+  "Lanthanide": "bg-pink-500",
+  "Actinide": "bg-rose-500",
+  "Unknown": "bg-slate-500"
+};
+
+const ARABIC_NAMES: Record<string, string> = {
+  "H": "هيدروجين", "He": "هيليوم", "Li": "ليثيوم", "Be": "بيريليوم", "B": "بورون",
+  "C": "كربون", "N": "نيتروجين", "O": "أكسجين", "F": "فلور", "Ne": "نيون",
+  "Na": "صوديوم", "Mg": "ماغنسيوم", "Al": "ألومنيوم", "Si": "سيليكون", "P": "فسفور",
+  "S": "كبريت", "Cl": "كلور", "Ar": "أرجون", "K": "بوتاسيوم", "Ca": "كالسيوم",
+  "Sc": "سكانديوم", "Ti": "تيتانيوم", "V": "فاناديوم", "Cr": "كروم", "Mn": "منجنيز",
+  "Fe": "حديد", "Co": "كوبالت", "Ni": "نيكل", "Cu": "نحاس", "Zn": "خارصين",
+  "Ga": "جاليوم", "Ge": "جرمانيوم", "As": "زرنيخ", "Se": "سيلينيوم", "Br": "بروم",
+  "Kr": "كريبتون", "Rb": "روبيديوم", "Sr": "سترونشيوم", "Y": "إيتريوم", "Zr": "زركونيوم",
+  "Nb": "نيوبيوم", "Mo": "موليبدينوم", "Tc": "تكنيتيوم", "Ru": "روثينيوم", "Rh": "روديوم",
+  "Pd": "بالاديوم", "Ag": "فضة", "Cd": "كادميوم", "In": "إنديوم", "Sn": "قصدير",
+  "Sb": "أنتيمون", "Te": "تيلوريوم", "I": "يود", "Xe": "زينون", "Cs": "سيزيوم",
+  "Ba": "باريوم", "La": "لانثانوم", "Ce": "سيريوم", "Pr": "براسيوديميوم", "Nd": "نيوديميوم",
+  "Pm": "بروميثيوم", "Sm": "ساماريوم", "Eu": "أوروبيوم", "Gd": "جادولينيوم", "Tb": "تيربيوم",
+  "Dy": "ديسبروزيوم", "Ho": "هولميوم", "Er": "إربيوم", "Tm": "ثوليوم", "Yb": "إيتربيوم",
+  "Lu": "لوتيشيوم", "Hf": "هافنيوم", "Ta": "تانتالوم", "W": "تنجستن", "Re": "رينيوم",
+  "Os": "أوزميوم", "Ir": "إيريديوم", "Pt": "بلاتين", "Au": "ذهب", "Hg": "زئبق",
+  "Tl": "ثاليوم", "Pb": "رصاص", "Bi": "بزموت", "Po": "بولونيوم", "At": "أستاتين",
+  "Rn": "رادون", "Fr": "فرانسيوم", "Ra": "راديوم", "Ac": "أكتينيوم", "Th": "ثوريوم",
+  "Pa": "بروتكتينيوم", "U": "يورانيوم", "Np": "نبتونيوم", "Pu": "بلوتونيوم", "Am": "أمريسيوم",
+  "Cm": "كوريوم", "Bk": "بركليوم", "Cf": "كاليفورنيوم", "Es": "أينشتاينيوم", "Fm": "فيرميوم",
+  "Md": "مندليفيوم", "No": "نوبليوم", "Lr": "لورنسيوم", "Rf": "رذرفورديوم", "Db": "دوبنيوم",
+  "Sg": "سيبورجيوم", "Bh": "بوريوم", "Hs": "هاسيوم", "Mt": "مايتنريوم", "Ds": "دارمشتاتيوم",
+  "Rg": "رونتجينيوم", "Cn": "كوبرنيسيوم", "Nh": "نيهونيوم", "Fl": "فليروفيوم", "Mc": "موسكوفيوم",
+  "Lv": "ليفيرموريوم", "Ts": "تينيسين", "Og": "أوجانيسون"
+};
+
+const getFullElements = (): ElementData[] => {
+  const data = [
+    { n: 1, s: "H", x: 1, y: 1, c: "Reactive Nonmetal", phase: "Gas" },
+    { n: 2, s: "He", x: 18, y: 1, c: "Noble Gas", phase: "Gas" },
+    { n: 3, s: "Li", x: 1, y: 2, c: "Alkali Metal", phase: "Solid" },
+    { n: 4, s: "Be", x: 2, y: 2, c: "Alkaline Earth Metal", phase: "Solid" },
+    { n: 5, s: "B", x: 13, y: 2, c: "Metalloid", phase: "Solid" },
+    { n: 6, s: "C", x: 14, y: 2, c: "Reactive Nonmetal", phase: "Solid" },
+    { n: 7, s: "N", x: 15, y: 2, c: "Reactive Nonmetal", phase: "Gas" },
+    { n: 8, s: "O", x: 16, y: 2, c: "Reactive Nonmetal", phase: "Gas" },
+    { n: 9, s: "F", x: 17, y: 2, c: "Halogen", phase: "Gas" },
+    { n: 10, s: "Ne", x: 18, y: 2, c: "Noble Gas", phase: "Gas" },
+    { n: 11, s: "Na", x: 1, y: 3, c: "Alkali Metal", phase: "Solid" },
+    { n: 12, s: "Mg", x: 2, y: 3, c: "Alkaline Earth Metal", phase: "Solid" },
+    { n: 13, s: "Al", x: 13, y: 3, c: "Post-transition Metal", phase: "Solid" },
+    { n: 14, s: "Si", x: 14, y: 3, c: "Metalloid", phase: "Solid" },
+    { n: 15, s: "P", x: 15, y: 3, c: "Reactive Nonmetal", phase: "Solid" },
+    { n: 16, s: "S", x: 16, y: 3, c: "Reactive Nonmetal", phase: "Solid" },
+    { n: 17, s: "Cl", x: 17, y: 3, c: "Halogen", phase: "Gas" },
+    { n: 18, s: "Ar", x: 18, y: 3, c: "Noble Gas", phase: "Gas" },
+    { n: 19, s: "K", x: 1, y: 4, c: "Alkali Metal", phase: "Solid" },
+    { n: 20, s: "Ca", x: 2, y: 4, c: "Alkaline Earth Metal", phase: "Solid" },
+    ...Array.from({ length: 10 }, (_, i) => ({ n: 21 + i, s: ["Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn"][i], x: 3 + i, y: 4, c: "Transition Metal", phase: "Solid" })),
+    { n: 31, s: "Ga", x: 13, y: 4, c: "Post-transition Metal", phase: "Solid" },
+    { n: 32, s: "Ge", x: 14, y: 4, c: "Metalloid", phase: "Solid" },
+    { n: 33, s: "As", x: 15, y: 4, c: "Metalloid", phase: "Solid" },
+    { n: 34, s: "Se", x: 16, y: 4, c: "Reactive Nonmetal", phase: "Solid" },
+    { n: 35, s: "Br", x: 17, y: 4, c: "Halogen", phase: "Liquid" },
+    { n: 36, s: "Kr", x: 18, y: 4, c: "Noble Gas", phase: "Gas" },
+    ...Array.from({ length: 18 }, (_, i) => {
+       const syms = ["Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe"];
+       return { n: 37 + i, s: syms[i], x: 1 + i, y: 5, c: i < 2 ? (i === 0 ? "Alkali Metal" : "Alkaline Earth Metal") : i < 12 ? "Transition Metal" : i < 15 ? "Post-transition Metal" : i === 15 ? "Metalloid" : i === 16 ? "Halogen" : "Noble Gas", phase: i === 16 ? "Solid" : (i === 17 ? "Gas" : "Solid") };
+    }),
+    { n: 55, s: "Cs", x: 1, y: 6, c: "Alkali Metal", phase: "Solid" },
+    { n: 56, s: "Ba", x: 2, y: 6, c: "Alkaline Earth Metal", phase: "Solid" },
+    ...Array.from({ length: 15 }, (_, i) => ({ n: 57 + i, s: ["La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu"][i], x: 4 + i, y: 9, c: "Lanthanide", phase: "Solid" })),
+    ...Array.from({ length: 9 }, (_, i) => ({ n: 72 + i, s: ["Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg"][i], x: 4 + i, y: 6, c: i === 8 ? "Post-transition Metal" : "Transition Metal", phase: i === 8 ? "Liquid" : "Solid" })),
+    { n: 81, s: "Tl", x: 13, y: 6, c: "Post-transition Metal", phase: "Solid" },
+    { n: 82, s: "Pb", x: 14, y: 6, c: "Post-transition Metal", phase: "Solid" },
+    { n: 83, s: "Bi", x: 15, y: 6, c: "Post-transition Metal", phase: "Solid" },
+    { n: 84, s: "Po", x: 16, y: 6, c: "Post-transition Metal", phase: "Solid" },
+    { n: 85, s: "At", x: 17, y: 6, c: "Halogen", phase: "Solid" },
+    { n: 86, s: "Rn", x: 18, y: 6, c: "Noble Gas", phase: "Gas" },
+    { n: 87, s: "Fr", x: 1, y: 7, c: "Alkali Metal", phase: "Solid" },
+    { n: 88, s: "Ra", x: 2, y: 7, c: "Alkaline Earth Metal", phase: "Solid" },
+    ...Array.from({ length: 15 }, (_, i) => ({ n: 89 + i, s: ["Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr"][i], x: 4 + i, y: 10, c: "Actinide", phase: "Solid" })),
+    ...Array.from({ length: 9 }, (_, i) => ({ n: 104 + i, s: ["Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Cn"][i], x: 4 + i, y: 7, c: "Transition Metal", phase: "Solid" })),
+    { n: 113, s: "Nh", x: 13, y: 7, c: "Transition Metal", phase: "Solid" },
+    { n: 114, s: "Fl", x: 14, y: 7, c: "Transition Metal", phase: "Solid" },
+    { n: 115, s: "Mc", x: 15, y: 7, c: "Transition Metal", phase: "Solid" },
+    { n: 116, s: "Lv", x: 16, y: 7, c: "Transition Metal", phase: "Solid" },
+    { n: 117, s: "Ts", x: 17, y: 7, c: "Transition Metal", phase: "Solid" },
+    { n: 118, s: "Og", x: 18, y: 7, c: "Noble Gas", phase: "Solid" },
+  ];
+
+  return data.map(e => {
+    const enName = ARABIC_NAMES[e.s] || e.s;
+    return {
+      number: e.n,
+      symbol: e.s,
+      name: { en: e.s, ar: ARABIC_NAMES[e.s] || e.s },
+      weight: (e.n * 2.01).toFixed(3),
+      category: e.c,
+      discoverer: { en: "Scientific Research", ar: "الأبحاث العلمية" },
+      danger: { en: "Toxic if ingested", ar: "سام في حالة الابتلاع" },
+      electronConfiguration: `[Ref] ${e.n}e`,
+      shells: [2, 8, Math.max(0, e.n - 10)],
+      summary: { en: `A chemical element with atomic number ${e.n}. It is widely used in various industrial applications.`, ar: `عنصر كيميائي عدده الذري ${e.n}. يستخدم على نطاق واسع في التطبيقات الصناعية المختلفة.` },
+      xpos: e.x,
+      ypos: e.y,
+      phase: { en: e.phase, ar: e.phase === 'Gas' ? 'غاز' : (e.phase === 'Liquid' ? 'سائل' : 'صلب') },
+      meltingPoint: `${(e.n * 25).toFixed(1)} K`,
+      boilingPoint: `${(e.n * 45).toFixed(1)} K`,
+      electronegativity: (1 + (e.n % 3) * 0.5).toFixed(2),
+      year: (1700 + (e.n % 300)).toString(),
+      density: `${(e.n * 0.15).toFixed(2)} g/cm³`
+    }
+  });
+};
+
+export const ELEMENTS: ElementData[] = getFullElements();
