@@ -3,7 +3,7 @@ import { ElementData, Translation } from './types';
 
 export const TRANSLATIONS: Record<'en' | 'ar', Translation> = {
   en: {
-    title: "Chemist",
+    title: "CHEMIST",
     subtitle: "Interactive Periodic Table",
     atomicNumber: "Atomic Number",
     atomicWeight: "Atomic Weight",
@@ -16,16 +16,32 @@ export const TRANSLATIONS: Record<'en' | 'ar', Translation> = {
     close: "Close",
     designedBy: "Designed by",
     rakiz: "Rakiz",
-    chemist: "Chemist",
+    chemist: "CHEMIST",
     phase: "Phase",
     meltingPoint: "Melting Point",
     boilingPoint: "Boiling Point",
     electronegativity: "Electronegativity",
     year: "Discovery Year",
-    density: "Density"
+    density: "Density",
+    balancer: "Equation Balancer",
+    forum: "Rakiz Forum",
+    balanceBtn: "Balance Equation",
+    placeholderEquation: "e.g., H2 + O2 = H2O",
+    rakizForum: "Rakiz Community",
+    community: "Community Feed",
+    login: "Sign In",
+    logout: "Sign Out",
+    comments: "Comments",
+    addComment: "Write your thought...",
+    opinion: "Opinions",
+    dashboard: "Control Center",
+    labMode: "Lab Mode",
+    performReaction: "Simulate Reaction",
+    selectChemicals: "Reactants Selection",
+    observation: "Reaction Observation"
   },
   ar: {
-    title: "الكيميائي",
+    title: "CHEMIST",
     subtitle: "الجدول الدوري التفاعلي",
     atomicNumber: "العدد الذري",
     atomicWeight: "الكتلة الذرية",
@@ -38,13 +54,29 @@ export const TRANSLATIONS: Record<'en' | 'ar', Translation> = {
     close: "إغلاق",
     designedBy: "تصميم",
     rakiz: "ركز",
-    chemist: "الكيميائي",
+    chemist: "CHEMIST",
     phase: "الحالة",
     meltingPoint: "درجة الانصهار",
     boilingPoint: "درجة الغليان",
     electronegativity: "السالبية الكهربية",
     year: "سنة الاكتشاف",
-    density: "الكثافة"
+    density: "الكثافة",
+    balancer: "وزن المعادلات",
+    forum: "منتدى ركز",
+    balanceBtn: "وزن المعادلة",
+    placeholderEquation: "مثال: H2 + O2 = H2O",
+    rakizForum: "مجتمع ركز العلمي",
+    community: "آخر المناقشات",
+    login: "تسجيل الدخول",
+    logout: "تسجيل الخروج",
+    comments: "التعليقات",
+    addComment: "اكتب رأيك هنا...",
+    opinion: "الآراء",
+    dashboard: "مركز التحكم",
+    labMode: "وضع المختبر",
+    performReaction: "محاكاة التفاعل",
+    selectChemicals: "اختيار المواد المتفاعلة",
+    observation: "ملاحظات التفاعل"
   }
 };
 
@@ -145,7 +177,6 @@ const getFullElements = (): ElementData[] => {
   ];
 
   return data.map(e => {
-    const enName = ARABIC_NAMES[e.s] || e.s;
     return {
       number: e.n,
       symbol: e.s,

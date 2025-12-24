@@ -12,7 +12,6 @@ export interface ElementData {
   summary: { en: string; ar: string };
   xpos: number;
   ypos: number;
-  // New scientific properties
   phase: { en: string; ar: string };
   meltingPoint: string;
   boilingPoint: string;
@@ -22,6 +21,21 @@ export interface ElementData {
 }
 
 export type Language = 'en' | 'ar';
+export type ViewState = 'table' | 'balancer' | 'forum' | 'dashboard' | 'auth' | 'lab';
+
+export interface Comment {
+  id: string;
+  user: string;
+  text: string;
+  date: string;
+  reaction: string;
+}
+
+export interface User {
+  username: string;
+  isLoggedIn: boolean;
+  avatar?: string;
+}
 
 export interface Translation {
   title: string;
@@ -38,11 +52,26 @@ export interface Translation {
   designedBy: string;
   rakiz: string;
   chemist: string;
-  // New labels
   phase: string;
   meltingPoint: string;
   boilingPoint: string;
   electronegativity: string;
   year: string;
   density: string;
+  balancer: string;
+  forum: string;
+  balanceBtn: string;
+  placeholderEquation: string;
+  rakizForum: string;
+  community: string;
+  login: string;
+  logout: string;
+  comments: string;
+  addComment: string;
+  opinion: string;
+  dashboard: string;
+  labMode: string;
+  performReaction: string;
+  selectChemicals: string;
+  observation: string;
 }
